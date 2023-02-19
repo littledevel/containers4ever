@@ -6,7 +6,6 @@
 ######################################################################
 
 SRC_DIR := src
-BIN_DIR := bin
 
 EXE := python3 src/app.py
 
@@ -16,13 +15,13 @@ run:
 	docker run -it app
 
 daemon: 
-	docker run -id app
+	docker run -d  --name app app
 
 build: 
 	docker build -t app src
 
 clean: 
-	@$(RM) -rv $(BIN_DIR) 
+	docker rm -f app
 
 
 
