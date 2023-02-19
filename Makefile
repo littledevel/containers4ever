@@ -12,16 +12,16 @@ EXE := python3 src/app.py
 .PHONY: all clean
 
 run: 
-	docker run -it app
+	docker run -it app:01
 
 daemon: 
-	docker run -d  --name app app
+	docker run -d  --name app app:01
 
 build: 
-	docker build -t app src
+	docker build -t app:01 src
 
 clean: 
-	docker rm -f app
+	docker rm -f app:01
 
 
 
